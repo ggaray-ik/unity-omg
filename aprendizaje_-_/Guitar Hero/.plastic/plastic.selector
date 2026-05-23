@@ -1,0 +1,3 @@
+repository "aprendizaje_-_/Guitar Hero@4674176395512@cloud"
+  path "/"
+    smartbranch "/main/ui+playerinput"
