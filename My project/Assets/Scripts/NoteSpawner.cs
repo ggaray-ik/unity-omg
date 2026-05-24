@@ -93,6 +93,7 @@ public class NoteSpawner : MonoBehaviour
         Vector3 spawnPoint = laneSpawnPoints[data.lane];
         GameObject note = Instantiate(notePrefabs[data.lane], spawnPoint, Quaternion.identity);
 
+        note.transform.SetParent(NoteHandler.timingHandler.transform);  // Para mantener la jerarquía organizada
         note.GetComponent<NoteView>().Init(data.lane, data.hitTime, travelTime, spawnPoint.y);
     }
 }
