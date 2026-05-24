@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class NoteSpawner : MonoBehaviour
 {
-    public static float songTime = 0f;
+    public static float songTime = -2f;
 
     [System.Serializable]
     public struct NoteData
@@ -63,29 +63,26 @@ public class NoteSpawner : MonoBehaviour
         new NoteData { lane = 1, hitTime = 29.50f },
     };
     // ────────────────────────────────────────────────────────────────────
-    private int nextNoteIndex;
+    public int nextNoteIndex;
 
     void Start()
     {
-        // Reset static songTime so replaying works correctly
-        songTime = 0f;
         nextNoteIndex = 0;
     }
     void Update()
     {
         songTime = getDummySongTime();
         while (nextNoteIndex < chart.Count &&
-               chart[nextNoteIndex].hitTime - songTime < travelTime)
+               (chart[nextNoteIndex].hitTime - songTime) < travelTime)
         {
             spawnNote(chart[nextNoteIndex]);
-            
             nextNoteIndex++;
         }
     }
 
     float getDummySongTime()
     {
-        return (songTime + Time.deltaTime);
+        return songTime + Time.deltaTime;
     }
     
     void spawnNote(NoteData data)
@@ -93,7 +90,8 @@ public class NoteSpawner : MonoBehaviour
         Vector3 spawnPoint = laneSpawnPoints[data.lane];
         GameObject note = Instantiate(notePrefabs[data.lane], spawnPoint, Quaternion.identity);
 
-        note.transform.SetParent(NoteHandler.timingHandler.transform);  // Para mantener la jerarquía organizada
+        NoteHandler.timingHandler.RegisterNote(note.GetComponent<NoteView>());
+        
         note.GetComponent<NoteView>().Init(data.lane, data.hitTime, travelTime, spawnPoint.y);
     }
 }

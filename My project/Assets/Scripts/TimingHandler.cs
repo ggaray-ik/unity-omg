@@ -1,8 +1,9 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class TimingHandler : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public List<NoteView> ActiveNotes = new List<NoteView>();
     void Start()
     {
         
@@ -12,5 +13,11 @@ public class TimingHandler : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void RegisterNote(NoteView note)
+    {
+        ActiveNotes.Add(note);
+        note.transform.SetParent(this.transform);  // Para mantener la jerarquía organizada
     }
 }

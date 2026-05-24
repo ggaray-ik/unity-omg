@@ -3,8 +3,8 @@ using UnityEngine;
 public class NoteHandler : MonoBehaviour
 {
     [Header("References")]
-    public NoteSpawner noteSpawnerRef;
-    public TimingHandler timingHandlerRef;
+    private NoteSpawner noteSpawnerRef;
+    private TimingHandler timingHandlerRef;
 
     public static NoteSpawner noteSpawner;
     public static TimingHandler timingHandler;
@@ -19,5 +19,11 @@ public class NoteHandler : MonoBehaviour
     void Update()
     {
         
+    }
+
+    static public void deleteNote(NoteView note)
+    {
+        timingHandler.ActiveNotes.Remove(note);
+        Destroy(note.gameObject);
     }
 }

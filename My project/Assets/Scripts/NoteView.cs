@@ -39,7 +39,7 @@ public class NoteView : MonoBehaviour
         // Destroy the note once it's well past the hit line
         if (y < hitY - 3f)
         {
-            Destroy(gameObject);
+            NoteHandler.deleteNote(this.GetComponent<NoteView>());
         }
     }
 }
