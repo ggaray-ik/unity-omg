@@ -91,9 +91,6 @@ public class NoteSpawner : MonoBehaviour
         Vector3 spawnPoint = laneSpawnPoints[data.lane];
         GameObject note = Instantiate(notePrefabs[data.lane], spawnPoint, Quaternion.identity);
 
-        Debug.Log($"Spawning note for lane {chart[nextNoteIndex].lane} at time {songTime}, {chart[nextNoteIndex].hitTime}");
-
-        // Opcional: pasarle el hitTime a la nota para cálculo de timing
-        // note.GetComponent<Note>().Init(data.hitTime, travelTime);
+        note.GetComponent<NoteView>().Init(data.lane, data.hitTime, travelTime, spawnPoint.y);
     }
 }
