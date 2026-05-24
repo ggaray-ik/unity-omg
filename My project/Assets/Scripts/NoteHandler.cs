@@ -3,8 +3,8 @@ using UnityEngine;
 public class NoteHandler : MonoBehaviour
 {
     [Header("References")]
-    private NoteSpawner noteSpawnerRef;
-    private TimingHandler timingHandlerRef;
+    public NoteSpawner noteSpawnerRef;
+    public TimingHandler timingHandlerRef;
 
     public static NoteSpawner noteSpawner;
     public static TimingHandler timingHandler;

@@ -5,11 +5,11 @@ public class NoteView : MonoBehaviour
     [SerializeField] private Sprite pressedSprite; 
     [SerializeField] private Sprite unpressedSprite; 
 
-    int lane;
-    float targetHitTime;
-    float travelTime;
-    float spawnY;
-    float hitY = -5f;
+    public int lane;
+    public float targetHitTime;
+    public float travelTime;
+    public float spawnY;
+    public float hitY = -5f;
 
     public void Init(int lane, float targetHitTime, float travelTime, float spawnY)
     {
