@@ -148,8 +148,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4993fbb6ea9d2ec4f912f764911b0459, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  notePrefab: []
-  laneSpawnPoints: []
+  notePrefabs:
+  - {fileID: 466462901912396741, guid: 123f57d7f275189468613d356596cd66, type: 3}
+  - {fileID: 466462901912396741, guid: 1feac6f9f509dae45a65f49848f771de, type: 3}
+  - {fileID: 466462901912396741, guid: b7dd1e2666f13f9498369b60f0ef54bc, type: 3}
+  - {fileID: 466462901912396741, guid: 36d3b870dee1d6c41be36d2702ed1a6c, type: 3}
+  laneSpawnPoints:
+  - {x: -1.5, y: 5, z: 0}
+  - {x: -0.5, y: 5, z: 0}
+  - {x: 0.5, y: 5, z: 0}
+  - {x: 1.5, y: 5, z: 0}
   travelTime: 2
 --- !u!4 &1612808616
 Transform:

@@ -14,7 +14,7 @@ public class NoteSpawner : MonoBehaviour
     }
 
     [Header("References")]
-    public GameObject[] notePrefab;
+    public GameObject[] notePrefabs;
     public Vector3[] laneSpawnPoints;   // 4 transforms, uno por carril
 
     [Header("Timing")]
@@ -31,29 +31,29 @@ public class NoteSpawner : MonoBehaviour
         new NoteData { lane = 0, hitTime =  2.50f },
         new NoteData { lane = 2, hitTime =  3.00f },
 
-        // Build — corcheas
-        new NoteData { lane = 1, hitTime =  8.00f },
-        new NoteData { lane = 3, hitTime =  8.25f },
-        new NoteData { lane = 0, hitTime =  8.50f },
-        new NoteData { lane = 2, hitTime =  8.75f },
-        new NoteData { lane = 1, hitTime =  9.00f },
-        new NoteData { lane = 3, hitTime =  9.50f },
-        new NoteData { lane = 0, hitTime = 10.00f },
-        new NoteData { lane = 2, hitTime = 10.25f },
-        new NoteData { lane = 1, hitTime = 10.50f },
-        new NoteData { lane = 3, hitTime = 10.75f },
+        // // Build — corcheas
+        // new NoteData { lane = 1, hitTime =  8.00f },
+        // new NoteData { lane = 3, hitTime =  8.25f },
+        // new NoteData { lane = 0, hitTime =  8.50f },
+        // new NoteData { lane = 2, hitTime =  8.75f },
+        // new NoteData { lane = 1, hitTime =  9.00f },
+        // new NoteData { lane = 3, hitTime =  9.50f },
+        // new NoteData { lane = 0, hitTime = 10.00f },
+        // new NoteData { lane = 2, hitTime = 10.25f },
+        // new NoteData { lane = 1, hitTime = 10.50f },
+        // new NoteData { lane = 3, hitTime = 10.75f },
 
-        // Drop — chords + síncopa
-        new NoteData { lane = 0, hitTime = 16.00f },
-        new NoteData { lane = 2, hitTime = 16.00f },  // chord simultáneo
-        new NoteData { lane = 1, hitTime = 16.75f },
-        new NoteData { lane = 3, hitTime = 17.00f },
-        new NoteData { lane = 0, hitTime = 17.50f },
-        new NoteData { lane = 1, hitTime = 17.50f },  // chord simultáneo
-        new NoteData { lane = 2, hitTime = 18.25f },
-        new NoteData { lane = 3, hitTime = 18.50f },
-        new NoteData { lane = 0, hitTime = 19.00f },
-        new NoteData { lane = 2, hitTime = 19.25f },
+        // // Drop — chords + síncopa
+        // new NoteData { lane = 0, hitTime = 16.00f },
+        // new NoteData { lane = 2, hitTime = 16.00f },  // chord simultáneo
+        // new NoteData { lane = 1, hitTime = 16.75f },
+        // new NoteData { lane = 3, hitTime = 17.00f },
+        // new NoteData { lane = 0, hitTime = 17.50f },
+        // new NoteData { lane = 1, hitTime = 17.50f },  // chord simultáneo
+        // new NoteData { lane = 2, hitTime = 18.25f },
+        // new NoteData { lane = 3, hitTime = 18.50f },
+        // new NoteData { lane = 0, hitTime = 19.00f },
+        // new NoteData { lane = 2, hitTime = 19.25f },
 
         // Outro — disperso
         new NoteData { lane = 1, hitTime = 24.00f },
@@ -76,6 +76,7 @@ public class NoteSpawner : MonoBehaviour
                chart[nextNoteIndex].hitTime - songTime < travelTime)
         {
             spawnNote(chart[nextNoteIndex]);
+            
             nextNoteIndex++;
         }
     }
@@ -88,7 +89,9 @@ public class NoteSpawner : MonoBehaviour
     void spawnNote(NoteData data)
     {
         Vector3 spawnPoint = laneSpawnPoints[data.lane];
-        GameObject note = Instantiate(notePrefab[data.lane], spawnPoint, Quaternion.identity);
+        GameObject note = Instantiate(notePrefabs[data.lane], spawnPoint, Quaternion.identity);
+
+        Debug.Log($"Spawning note for lane {chart[nextNoteIndex].lane} at time {songTime}, {chart[nextNoteIndex].hitTime}");
 
         // Opcional: pasarle el hitTime a la nota para cálculo de timing
         // note.GetComponent<Note>().Init(data.hitTime, travelTime);

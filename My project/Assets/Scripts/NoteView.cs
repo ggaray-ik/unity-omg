@@ -10,6 +10,9 @@ public class NoteView : MonoBehaviour
     float targetHitTime;
     void Start()
     {
+        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.sprite = unpressedSprite;
+
         const int HarcodedLane = 1;
         const float hardcodedNoteSpeed = 1.0f;
         const float hardcodedTargetHitTime = 5.0f;
