@@ -90,8 +90,8 @@ public class NoteSpawner : MonoBehaviour
         Vector3 spawnPoint = laneSpawnPoints[data.lane];
         GameObject note = Instantiate(notePrefabs[data.lane], spawnPoint, Quaternion.identity);
 
-        NoteHandler.timingHandler.RegisterNote(note.GetComponent<NoteView>());
-        
         note.GetComponent<NoteView>().Init(data.lane, data.hitTime, travelTime, spawnPoint.y);
+
+        FindFirstObjectByType<HitZone>().RegisterNote(note.GetComponent<NoteView>());
     }
 }
