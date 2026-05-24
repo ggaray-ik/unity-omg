@@ -1,0 +1,95 @@
+{
+    "version": 1,
+    "name": "RhythmControls",
+    "maps": [
+        {
+            "name": "Gameplay",
+            "id": "8524f28b-b97f-46e0-9c8a-62e37db6bc83",
+            "actions": [
+                {
+                    "name": "LaneA",
+                    "type": "Button",
+                    "id": "670f9ab1-325b-4688-a49f-f9c4ed9d8766",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "LaneB",
+                    "type": "Button",
+                    "id": "422b0c5d-e5cd-4155-9313-1b40437fcd09",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "LaneX",
+                    "type": "Button",
+                    "id": "f3b52688-2d01-4a14-872d-3872a1f0277c",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "LaneY",
+                    "type": "Button",
+                    "id": "c7568653-b2ff-4f76-aa46-79358446f61d",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "0f0326c8-5f8c-460c-bb27-30c356ce230c",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LaneA",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "68e677ee-19a4-4ad2-a838-b2d6a3ff04b8",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LaneB",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e1a3a1ee-ea4e-424f-a1bd-e937c4cddaea",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LaneX",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "835e5c4f-3737-453b-b9b8-12e520f04ef5",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LaneY",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

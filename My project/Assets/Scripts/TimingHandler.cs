@@ -20,8 +20,7 @@ public class TimingHandler : MonoBehaviour
             {
                 // Accessing properties as requested
                 int currentLane = note.lane;
-                float currentTargetTime = note.targetHitTime;
-                Debug.Log($"Note in lane {currentLane} is within the error margin! Target hit time: {currentTargetTime}");
+                float currentTargetTime = note.targetHitTime; 
             }
         }
     }
