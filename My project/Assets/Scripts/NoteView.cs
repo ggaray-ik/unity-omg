@@ -30,11 +30,13 @@ public class NoteView : MonoBehaviour
     {
         // How many seconds remain until this note should be hit
         float timeUntilHit = targetHitTime - NoteSpawner.songTime;
+        Debug.Log($"Note in lane {lane} has {timeUntilHit:F2} seconds until hit");
 
         // progress: 0 = just spawned (at spawnY), 1 = exactly at hit line (at hitY)
         float progress = 1f - (timeUntilHit / travelTime);
 
-        float y = Mathf.Lerp(spawnY, hitY, progress);
+        // LerpUnclamped so notes continue past the hit line instead of getting stuck
+        float y = Mathf.LerpUnclamped(spawnY, hitY, progress);
         transform.position = new Vector3(transform.position.x, y, transform.position.z);
 
         // Destroy the note once it's well past the hit line
